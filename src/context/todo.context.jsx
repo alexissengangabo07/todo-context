@@ -17,11 +17,16 @@ export const TodoContextProvider = ({ children }) => {
     ]);
 
     const addTask = (task) => {
-        console.log('ADD_TASK')
+        setTasks([...tasks, {
+            id: new Date().getTime(),
+            title: task,
+            done: false
+        }])
     }
 
-    const removeTask = (task) => {
-        console.log('REMOVE_TASK');
+    const removeTask = (id) => {
+        const newTasks = tasks.filter(task => task.id !== id);
+        setTasks(newTasks);
     }
 
     const updateTask = (task) => {
