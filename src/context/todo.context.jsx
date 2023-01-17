@@ -17,11 +17,13 @@ export const TodoContextProvider = ({ children }) => {
     ]);
 
     const addTask = (task) => {
-        setTasks([...tasks, {
-            id: new Date().getTime(),
-            title: task,
-            done: false
-        }])
+        if (task.trim() !== '') {
+            setTasks([...tasks, {
+                id: new Date().getTime(),
+                title: task.trim(),
+                done: false
+            }])
+        }
     }
 
     const removeTask = (id) => {
@@ -29,8 +31,12 @@ export const TodoContextProvider = ({ children }) => {
         setTasks(newTasks);
     }
 
-    const updateTask = (task) => {
-        console.log('UPDATE_TASK');
+    const updateTask = (id) => {
+        const taskCopy = [...tasks];
+        const taskIndex = taskCopy.findIndex(task => task.id === id);
+        taskCopy[taskIndex].done = !taskCopy[taskIndex].done;
+
+        setTasks(taskCopy);
     }
 
     return (
