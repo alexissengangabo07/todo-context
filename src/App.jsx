@@ -3,7 +3,7 @@ import TodoList from './pages/TodoList'
 
 const App = () => {
   return (
-    <div className='App'>
+    <div className='App' data-theme={'light'}>
       <TodoList />
     </div>
   )
