@@ -1,5 +1,7 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  --background-color: #fff;
+  --text-color: #000;
 }
 
 * {
@@ -8,12 +10,140 @@
   box-sizing: border-box;
 }
 
+.App[data-theme="dark"] {
+  --background-color: rgb(9, 3, 24);
+  --text-color: #fff;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
 }
 
 .task-done {
   text-decoration: line-through;
+}
+
+.header {
+  background-color: rgb(90, 0, 90);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+.theme-choice {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+
+#theme-selector {
+  border-radius: 4px;
+  outline: 2px solid purple;
+}
+
+.form-container {
+  margin-top: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(220, 219, 219);
+}
+
+.form-container form {
+  display: flex;
+}
+
+.form-container input[type="text"] {
+  width: 350px;
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid rgb(90, 0, 90);
+  padding-left: 8px;
+  outline: none;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.btn-add {
+  height: 35px;
+  margin-left: -6px;
+  border-radius: 0 5px 5px 0;
+  border: 1px solid rgb(90, 0, 90);
+  width: 50px;
+  cursor: pointer;
+  background-color: rgb(90, 0, 90);
+  color: white;
+  transition: all 1s ease;
+}
+
+.btn-add:hover {
+  background-color: rgb(45, 0, 45);
+}
+
+.tasks {
+  width: 370px;
+  margin-top: 25px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+#tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+#tasks-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(230, 228, 228);
+  padding-bottom: 20px;
+}
+
+.actions {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.btn-delete {
+  color: #fff;
+  background-color: red;
+  border: 1px solid red;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+background-color: rgb(165, 7, 7);
+}
+
+@media screen and (max-width: 768px) {
+  .form-container input[type="text"] {
+    width: 330px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(202, 206, 206);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: cadetblue;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgb(82, 131, 158);
 }
