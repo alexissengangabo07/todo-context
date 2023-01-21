@@ -5,13 +5,18 @@ const Tasks = () => {
     const { tasks, removeTask, updateTask } = useContext(TodoContext);
     return (
         <div className='tasks'>
-            <ul>
+            <ul id='tasks-list'>
                 {
                     tasks.map(task => (
-                        <li key={task.id} className={task.done ? 'task-done' : ''}>
-                            <span>{task.title}</span>
-                            <input type="checkbox" onChange={() =>updateTask(task.id) } checked={task.done} />
-                            <button onClick={() => removeTask(task.id)}>Delete</button>
+                        <li key={task.id}>
+
+                            <div>
+                                <span className={task.done ? 'task-done' : ''}>{task.title}</span>
+                            </div>
+                            <div className='actions'>
+                                <input type="checkbox" onChange={() => updateTask(task.id)} checked={task.done} />
+                                <button onClick={() => removeTask(task.id)} className="btn-delete">X</button>
+                            </div>
                         </li>
                     ))
                 }

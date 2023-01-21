@@ -15,10 +15,10 @@ const Form = () => {
         <div className='form-container'>
             <form action="" onSubmit={e => handleSubmit(e)}>
                 <div>
-                    <input type="text" value={input} onChange={e => setInput(e.target.value)} />
+                    <input type="text" value={input} onChange={e => setInput(e.target.value)} placeholder="Enter task" />
                 </div>
                 <div>
-                    <input type="submit" value="Add" />
+                    <input type="submit" value="Add" className='btn-add' />
                 </div>
             </form>
         </div>
